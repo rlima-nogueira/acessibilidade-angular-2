@@ -1,7 +1,8 @@
 import { ViewChild } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 import { Component } from '@angular/core';
-import { ModalRef, ModalService } from './shared/components/modal/services/modal.service';
+import { ModalRef } from './shared/components/modal/models/modal-ref';
+import { ModalService } from './shared/components/modal/services/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent {
   public title = 'Acessibilidade Angular';
   public firstName = 'Rafaela';
   public modalRef: ModalRef;
+  public infor = false;
 
   constructor(
     private modalService: ModalService
