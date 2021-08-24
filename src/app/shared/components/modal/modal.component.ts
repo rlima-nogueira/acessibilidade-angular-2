@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalConfig } from './interfaces/modal-config';
+
 
 @Component({
   selector: 'app-modal',
@@ -6,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent  {
+  public config: ModalConfig;
+
 
   constructor() { }
-
-
 
 }
