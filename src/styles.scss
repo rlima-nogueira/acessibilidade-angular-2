@@ -35,6 +35,12 @@ body {
     background-color: #6c757d;
     color: #fff;
   }
+
+  &.button-disabled {
+    background-color: #6c757d;
+    color: #fff;
+    opacity: 0.4;
+  }
 }
 
 .form-field {

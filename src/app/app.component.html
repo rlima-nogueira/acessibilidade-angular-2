@@ -9,29 +9,40 @@
 </button>
 
 <ng-template #modal>
-  <div class="form-field">
-    <label for="firstName"> First Name</label>
-    <input id="firstName">
-  </div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-field">
+      <label for="firstName"> First Name</label>
+      <input id="firstName" formControlName="firstName">
+    </div>
 
-  <div class="form-field">
-    <label for="surname">Surname</label>
-    <input id="surname">
-  </div>
+    <div class="form-field">
+      <label for="surname">Surname</label>
+      <input id="surname" formControlName="surname">
+    </div>
 
-  <div class="form-field">
-    <label for="age">Age</label>
-    <input id="age">
-  </div>
+    <div class="form-field">
+      <label for="age">Age</label>
+      <input id="age" formControlName="age">
+    </div>
 
-  <label for="info">Subscribe to news letter</label>
-  <input id="newsletter" type="checkbox" (change)="info = !info"/>
-  <p [@fade] *ngIf="info"> This is a placeholder for information</p>
-  <div class="button-group">
-    <button type="button" class="button button-primary">Submit</button>
-    <button
-      type="button"
-      class="button button-secondary"
-      (click)="modalRef.close()">Cancel</button>
-  </div>
+    <label for="info">Subscribe to news letter</label>
+    <input id="newsletter" type="checkbox" (change)="info = !info" formControlName="info"/>
+    <p [@fade] *ngIf="info"> This is a placeholder for information</p>
+
+    <div class="button-group">
+      <button
+        [ngClass]="form.invalid ? 'button button-disabled' : 'button button-primary'"
+        [attr.aria-disabled]="form.invalid"
+        type="submit">
+        Submit
+      </button>
+
+
+      <button
+        type="button"
+        class="button button-secondary"
+        (click)="modalRef.close()">Cancel</button>
+    </div>
+  </form>
+
 </ng-template>
