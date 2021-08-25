@@ -14,8 +14,7 @@ import { ModalService } from './shared/components/modal/services/modal.service';
 })
 export class AppComponent implements OnInit {
   @ViewChild('modal') public modalTemplateRef: TemplateRef<any>;
-  public title = 'Acessibilidade Angular';
-  public firstName = 'Rafaela';
+
   public modalRef: ModalRef;
   public infor = false;
 
@@ -28,9 +27,9 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.form = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      surname: ['', Validators.required],
-      age: ['', Validators.required],
+      nome: ['', Validators.required],
+      sobrenome: ['', Validators.required],
+      idade: ['', Validators.required],
       info: [false],
     });
   }
@@ -38,7 +37,7 @@ export class AppComponent implements OnInit {
   public showModal(): void {
     this.modalRef = this.modalService.open({
       templateRef: this.modalTemplateRef,
-      title: 'User Details'
+      title: 'Cadastro de pessoa'
     });
   }
 
@@ -46,7 +45,7 @@ export class AppComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    console.log(this.form.value);
+
     this.modalRef.close();
     this.form.reset();
   }
