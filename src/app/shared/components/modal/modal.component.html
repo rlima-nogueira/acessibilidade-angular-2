@@ -1,12 +1,13 @@
 <div
   class="modal-overlay"
   (click)="modalRef.close()"
+  (keydown.esc)="modalRef.close()"
   >
-  <div class="modal-content"
-    (click)="$event.stopPropagation()"
-  >
+  <div
+    appFocusTrap
+    class="modal-content"
+    (click)="$event.stopPropagation()">
     <h1 class="modal-title"> {{config.title}} </h1>
-
     <ng-content *ngTemplateOutlet="config.templateRef"> </ng-content>
   </div>
 </div>
