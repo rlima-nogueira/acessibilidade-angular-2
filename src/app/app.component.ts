@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.form = this.formBuilder.group({
-      firstName: ['Rafaela', Validators.required],
+      firstName: ['', Validators.required],
       surname: ['', Validators.required],
       age: ['', Validators.required],
       info: [false],
@@ -48,6 +48,7 @@ export class AppComponent implements OnInit {
     }
     console.log(this.form.value);
     this.modalRef.close();
+    this.form.reset();
   }
 
 }
